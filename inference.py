@@ -34,6 +34,10 @@ def perform_inference(model, image_path):
     if image is None:
         raise ValueError(f"Could not load image at {image_path}")
     
+    # Get image dimensions
+    height, width = image.shape[:2]
+    print(f"\nImage dimensions: {width}x{height}")
+    
     # Start timing
     start_time = time.time()
     
@@ -51,15 +55,27 @@ def perform_inference(model, image_path):
         
         # Print detection information
         print("\nDetection Results:")
-        for box in boxes:
+        for i, box in enumerate(boxes, 1):
             class_id = int(box.cls[0])
             confidence = float(box.conf[0])
             class_name = model.names[class_id]
-            print(f"Detected: {class_name} with confidence: {confidence:.2f}")
             
             # Get bounding box coordinates
             x1, y1, x2, y2 = box.xyxy[0].cpu().numpy()
-            print(f"Bounding box: ({x1:.1f}, {y1:.1f}), ({x2:.1f}, {y2:.1f})")
+            
+            # Calculate box dimensions
+            box_width = x2 - x1
+            box_height = y2 - y1
+            
+            print(f"\nDetection {i}:")
+            print(f"  Class: {class_name}")
+            print(f"  Confidence: {confidence:.2f}")
+            print(f"  Bounding Box:")
+            print(f"    Top-left: ({x1:.1f}, {y1:.1f})")
+            print(f"    Bottom-right: ({x2:.1f}, {y2:.1f})")
+            print(f"    Width: {box_width:.1f}px")
+            print(f"    Height: {box_height:.1f}px")
+            print(f"    Area: {box_width * box_height:.1f}px²")
     
     # Draw results on image
     annotated_image = results[0].plot()
