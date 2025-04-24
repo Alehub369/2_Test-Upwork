@@ -1,0 +1,14 @@
+ultralytics>=8.0.0
+opencv-python>=4.5.0
+torch>=2.0.0
+torchvision>=0.15.0
+onnx>=1.14.0
+onnxruntime>=1.16.0
+onnxruntime-gpu>=1.16.0  # Optional: for GPU support
+protobuf>=3.20.0  # Required for ONNX
+matplotlib>=3.10.1  # For visualization
+pandas>=2.2.3  # For data handling
+tqdm>=4.67.1  # For progress bars
+PyYAML>=6.0.2  # For configuration
+scipy>=1.15.2  # For scientific computing
+seaborn>=0.13.2  # For advanced visualization 
