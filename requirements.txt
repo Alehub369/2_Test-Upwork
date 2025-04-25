@@ -11,4 +11,5 @@ pandas>=2.2.3  # For data handling
 tqdm>=4.67.1  # For progress bars
 PyYAML>=6.0.2  # For configuration
 scipy>=1.15.2  # For scientific computing
-seaborn>=0.13.2  # For advanced visualization 
+seaborn>=0.13.2  # For advanced visualization
+numpy 
