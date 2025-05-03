@@ -1,0 +1,13 @@
+# Development dependencies
+pytest==7.4.0
+black==23.7.0
+flake8==6.1.0
+python-dotenv==1.0.0
+
+# PyTorch and dependencies
+--index-url https://download.pytorch.org/whl/nightly/cpu
+torch
+torchvision
+torchaudio
+
+# Add your project-specific dependencies below 
